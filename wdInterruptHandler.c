@@ -90,12 +90,12 @@ void __interrupt_vec(WDT_VECTOR) WDT() {
 
 	static char secondCounter = 0, decisecondCounter = 0;
 
-	if (++secondCounter == 250) {
+	if (++secondCounter == 10) {
     stateAdvance();
     secondCounter = 0;
 	}
 
-	if (++decisecondCounter == 25) {
+	if (++decisecondCounter == 100) {
     buzzerAdvanceFrequency();
     decisecondCounter = 0;
 	}
