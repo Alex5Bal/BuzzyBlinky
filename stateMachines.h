@@ -30,7 +30,7 @@ void stateAdvance();
 #ifndef stateMachine_included
 #define stateMachine_included
 
-extern unsigned char state;
+extern static unsigned char state;
 
 void stateAdvance();
 
