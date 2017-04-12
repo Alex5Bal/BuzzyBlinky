@@ -134,7 +134,7 @@ void buzzerUpdate( ) {
 	}
 
 	else if (switchStateChanged && sounds == 0) {
-		period += 500;
+		period += 400;
 		rate += 200;
 		sounds = 1;
 	}
