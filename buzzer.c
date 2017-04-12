@@ -110,7 +110,7 @@ static unsigned int period = 1000;
 static signed int rate = 500;
 
 #define MIN_PERIOD 1000
-#define MAX_PERIOD 4000
+#define MAX_PERIOD 2000
 
 void buzzerInit() {
 
@@ -136,7 +136,7 @@ void buzzerAdvanceFrequency() {
 	if ((rate > 0 && (period > MAX_PERIOD)) || (rate < 0 && (period < MIN_PERIOD))) {
 
 		rate = -rate;
-		period += (rate << 2);
+		period += (rate << 1);
 	}
 
 	buzzerSetPeriod(period);
