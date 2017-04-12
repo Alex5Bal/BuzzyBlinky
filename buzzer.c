@@ -130,14 +130,15 @@ void buzzerUpdate( ) {
 	if (switchStateChanged & sound == 1) {
 		period = 500;
 		sound = 0;
+		switchStateChanged = 0;
 	}
 
 	else if (switchStateChanged && sound == 0) {
 		period = 3000;
 		sound = 1;
+		switchStateChanged = 0;
 	}
 
-	switchStateChanged = 0;
 }
 
 void buzzerAdvanceFrequency() {
