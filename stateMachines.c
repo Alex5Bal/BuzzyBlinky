@@ -109,33 +109,41 @@ void stateAdvance() {		 //alternate between toggling red & green
 #include "stateMachines.h"
 #include "led.h"
 
-char toggleRed() {		 //always toggle!
+char toggleRed() {
 
 	static char state = 0;
 
 	switch (state) {
-	case 0:
-		redOn = 1;
-		state = 1;
-		break;
-	case 1:
-		redOn = 0;
-		state = 0;
-		break;
+		case 0:
+			redOn = 1;
+			state = 1;
+			break;
+		case 1:
+			redOn = 0;
+			state = 0;
+			break;
 	}
-	return 1;			 //always changes an led
+
+	return 1;
 }
 
 char toggleGreen()	{ //only toggle green if red is on!
 
-	char changed = 0;
-	if (redOn) {
-		greenOn ^= 1;
-		changed = 1;
-	}
-	return changed;
-}
+	static char state = 0;
 
+	switch (state) {
+		case 0:
+			greenOn = 0;
+			state = 1;
+			break;
+		case 1:
+			greenOn = 1;
+			state = 0;
+			break;
+	}
+
+	return 1;
+}
 
 void stateAdvance() {		 //alternate between toggling red & green
 
