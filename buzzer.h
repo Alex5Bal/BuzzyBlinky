@@ -34,6 +34,7 @@ void buzzerSetPeriod(short cycles);
 #define buzzer_included
 
 void buzzerInit();
+void buzzerUpdate();
 void buzzerAdvanceFrequency();
 void buzzerSetPeriod(short cycles);
 

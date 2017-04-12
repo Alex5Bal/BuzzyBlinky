@@ -152,13 +152,15 @@ void stateAdvance() {
 	static enum {R=0, G=1} color = G;
 
 	switch (color) {
-		case R: changed = toggleRed();
-		color = G;
-		break;
+		case R:
+			changed = toggleRed();
+			color = G;
+			break;
 
-		case G: changed = toggleGreen();
-		color = R;
-		break;
+		case G:
+			changed = toggleGreen();
+			color = R;
+			break;
 	}
 
 	ledChanged = changed;

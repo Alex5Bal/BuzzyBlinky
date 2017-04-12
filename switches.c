@@ -83,7 +83,7 @@ void switchInterruptHandler() {
 
 #include <msp430.h>
 #include "switches.h"
-#include "led.h"
+#include "buzzer.h"
 
 char switchStateDown, switchStateChanged;
 
@@ -111,5 +111,5 @@ void switchInterruptHandler() {
 	char p1val = switchUpdateInterruptSense();
 	switchStateDown = (p1val & SW1) ? 0 : 1;
 	switchStateChanged = 1;
-	ledUpdate();
+	buzzerUpdate();
 }

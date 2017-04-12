@@ -105,6 +105,7 @@ void buzzerSetPeriod(short cycles) {
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
+#include "switches.h"
 
 static unsigned int period = 2000;
 static signed int rate = 500;
@@ -121,6 +122,15 @@ void buzzerInit() {
     P2DIR = BIT6;
 
     buzzerAdvanceFrequency();
+}
+
+void buzzerUpdate( ) {
+	if (switchStateChanged) {
+		rate = 1000;
+		period = 1000;
+	}
+
+	switchStateChanged = 0;
 }
 
 void buzzerAdvanceFrequency() {
