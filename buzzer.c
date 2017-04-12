@@ -106,11 +106,11 @@ void buzzerSetPeriod(short cycles) {
 #include "libTimer.h"
 #include "buzzer.h"
 
-static unsigned int period = 1000;
+static unsigned int period = 2000;
 static signed int rate = 250;
 
-#define MIN_PERIOD 1000
-#define MAX_PERIOD 5000
+#define MIN_PERIOD 2000
+#define MAX_PERIOD 4000
 
 void buzzerInit() {
 
