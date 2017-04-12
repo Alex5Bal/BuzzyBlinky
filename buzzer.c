@@ -135,7 +135,7 @@ void buzzerUpdate( ) {
 
 void buzzerAdvanceFrequency() {
 
-	period -= rate;
+	period += rate;
 
 	if ((rate > 0 && (period > MAX_PERIOD)) || (rate < 0 && (period < MIN_PERIOD))) {
 
