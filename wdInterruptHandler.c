@@ -40,7 +40,7 @@ void decisecond() {
   }
 }
 
-void interruptVec(WDT_VECTOR) WDT() {
+void __interrupt_vec(WDT_VECTOR) WDT() {
 
 	static char secondCounter = 0, decisecondCounter = 0;
 
