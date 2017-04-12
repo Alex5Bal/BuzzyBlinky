@@ -127,7 +127,7 @@ void buzzerInit() {
 void buzzerUpdate( ) {
 
 	if (switchStateChanged) {
-		rate = 1000;
+		rate = 100;
 		period = 2000;
 	}
 
