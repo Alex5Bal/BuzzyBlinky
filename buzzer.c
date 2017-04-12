@@ -110,7 +110,7 @@ static unsigned int period = 1500;
 static signed int rate = 500;
 
 #define MIN_PERIOD 500
-#define MAX_PERIOD 4500
+#define MAX_PERIOD 3000
 
 void buzzerInit() {
 
