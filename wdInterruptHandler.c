@@ -1,4 +1,6 @@
-/*#include <msp430.h>
+/*** Original Blink and Buzz ***
+
+#include <msp430.h>
 #include "buzzer.h"
 #include "led.h"
 
@@ -24,6 +26,50 @@ __interrupt_vec(WDT_VECTOR) WDT(){	 250 interrupts/sec
   }
   led_update();
 }*/
+
+
+
+
+
+/*** Modified Variable Blink and Buzz(same functionality) ***
+
+#include <msp430.h>
+#include "buzzer.h"
+#include "led.h"
+
+void decisecond() {
+
+	static char count = 0;		 # deciseconds/frequecy change
+
+	if (++count > 2) {
+
+		buzzerAdvanceFrequency();
+		count = 0;
+  }
+}
+
+void __interrupt_vec(WDT_VECTOR) WDT() {
+
+	static char secondCounter = 0, decisecondCounter = 0;
+
+	if (++secondCounter == 250) {
+    stateAdvance();
+    secondCounter = 0;
+	}
+
+	if (++decisecondCounter == 25) {
+    buzzerAdvanceFrequency();
+    decisecondCounter = 0;
+	}
+
+	ledUpdate();
+}*/
+
+
+
+
+
+/*** Blink and Buzz Mod 1 ***/
 
 #include <msp430.h>
 #include "buzzer.h"
