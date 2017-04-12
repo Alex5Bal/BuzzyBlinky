@@ -131,18 +131,12 @@ void buzzerUpdate( ) {
 		period = 2000;
 		rate += 100;
 		sounds = 0;
-
-		if (rate == 2000)
-			rate = 100;
 	}
 
 	else if (switchStateChanged && sounds == 0) {
 		period = 3000;
-		rate += 250;
+		rate += 300;
 		sounds = 1;
-
-		if (rate == 2000)
-			rate = 1000;
 	}
 
 	switchStateChanged = 0;
