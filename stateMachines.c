@@ -109,7 +109,7 @@ void stateAdvance() {		 //alternate between toggling red & green
 #include "stateMachines.h"
 #include "led.h"
 
-static unsigned char state = 0;
+unsigned char state = 0;
 
 char toggleRed() {
 
