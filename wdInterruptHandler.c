@@ -16,11 +16,11 @@ void decisecond()
 void
 __interrupt_vec(WDT_VECTOR) WDT(){	 250 interrupts/sec
   static char second_count = 0, decisecond_count = 0;
-  if (++second_count == 250) {
+  if (++second_count == 10) {
     state_advance();//led_toggle();
     second_count = 0;
   }
-  if (++decisecond_count == 25) {
+  if (++decisecond_count == 100) {
     buzzer_advance_frequency();
     decisecond_count = 0;
   }
@@ -52,12 +52,12 @@ void __interrupt_vec(WDT_VECTOR) WDT() {
 
 	static char secondCounter = 0, decisecondCounter = 0;
 
-	if (++secondCounter == 250) {
+	if (++secondCounter == 10) {
     stateAdvance();
     secondCounter = 0;
 	}
 
-	if (++decisecondCounter == 25) {
+	if (++decisecondCounter == 100) {
     buzzerAdvanceFrequency();
     decisecondCounter = 0;
 	}
@@ -90,7 +90,7 @@ void __interrupt_vec(WDT_VECTOR) WDT() {
 
 	static char secondCounter = 0, decisecondCounter = 0;
 
-	if (++secondCounter == 10) {
+	if (++secondCounter == 100) {
     stateAdvance();
     secondCounter = 0;
 	}
