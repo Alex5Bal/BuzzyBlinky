@@ -107,11 +107,12 @@ void buzzerSetPeriod(short cycles) {
 #include "buzzer.h"
 #include "switches.h"
 
-unsigned int period = 2000;
+unsigned int period = 0;
 signed int rate = 1000;
+unsigned char sound = 0;
 
-#define MIN_PERIOD 2000
-#define MAX_PERIOD 4000
+#define MIN_PERIOD 1000
+#define MAX_PERIOD 6000
 
 void buzzerInit() {
 
@@ -126,8 +127,14 @@ void buzzerInit() {
 
 void buzzerUpdate( ) {
 
-	if (switchStateChanged) {
-		period = 100;
+	if (switchStateChanged & sound == 1) {
+		period = 500;
+		sound = 0;
+	}
+
+	else if (switchStateChanged && sound == 0) {
+		period = 3000;
+		sound = 1;
 	}
 
 	switchStateChanged = 0;
