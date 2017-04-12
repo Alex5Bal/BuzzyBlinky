@@ -90,26 +90,26 @@ char switchStateDown, switchStateChanged;
 static char switchUpdateInterruptSense() {
 
 	char p1val = P1IN;
-	/* update switch interrupt to detect changes from current buttons */
-	P1IES |= (p1val & SWITCHES);	/* if switch up, sense down */
-	P1IES &= (p1val | ~SWITCHES);	/* if switch down, sense up */
+
+	P1IES |= (p1val & SWITCHES);
+	P1IES &= (p1val | ~SWITCHES);
 	return p1val;
 }
 
 void switchInit() {
 
-	P1REN |= SWITCHES;		/* enables resistors for switches */
-	P1IE = SWITCHES;		/* enable interrupts from switches */
-	P1OUT |= SWITCHES;		/* pull-ups for switches */
-	P1DIR &= ~SWITCHES;		/* set switches' bits for input */
+	P1REN |= SWITCHES;
+	P1IE = SWITCHES;
+	P1OUT |= SWITCHES;
+	P1DIR &= ~SWITCHES;
 	switchUpdateInterruptSense();
-	switchInterruptHandler();	/* to initially read the switches */
+	switchInterruptHandler();
 }
 
 void switchInterruptHandler() {
 
 	char p1val = switchUpdateInterruptSense();
-	switchStateDown = (p1val & SW1) ? 0 : 1; /* 0 when SW1 is up */
+	switchStateDown = (p1val & SW1) ? 0 : 1;
 	switchStateChanged = 1;
 	ledUpdate();
 }

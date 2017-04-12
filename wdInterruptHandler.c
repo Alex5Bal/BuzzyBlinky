@@ -77,7 +77,7 @@ void __interrupt_vec(WDT_VECTOR) WDT() {
 
 void decisecond() {
 
-	static char count = 0;		/* # deciseconds/frequecy change */
+	static char count = 0;
 
 	if (++count > 2) {
 

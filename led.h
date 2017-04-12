@@ -51,11 +51,10 @@ void ledUpdate();
 #define LED_GREEN BIT6             // P1.6
 #define LEDS (BIT0 | BIT6)
 
-extern unsigned char redOn, greenOn;
-extern unsigned char ledChanged;
+extern unsigned char redOn, greenOn, ledChanged;
 
 void ledInit();
 void ledUpdate();
 
-#endif // included
+#endif
 

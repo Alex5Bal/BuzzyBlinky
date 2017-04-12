@@ -69,15 +69,13 @@ void ledUpdate() {
 #include <msp430.h>
 #include "led.h"
 
-unsigned char redOn = 0, greenOn = 0;
-unsigned char ledChanged = 0;
+unsigned char redOn = 0, greenOn = 0, ledChanged = 0;
 
 static char redVal[] = {0, LED_RED}, greenVal[] = {0, LED_GREEN};
 
-
 void ledInit() {
 
-	P1DIR |= LEDS;		// bits attached to leds are output
+	P1DIR |= LEDS;
 	ledChanged = 1;
 	ledUpdate();
 }
@@ -87,8 +85,8 @@ void ledUpdate() {
 	if (ledChanged) {
 		char ledFlags = redVal[redOn] | greenVal[greenOn];
 
-		P1OUT &= (0xff ^ LEDS) | ledFlags; // clear bit for off leds
-		P1OUT |= ledFlags;		     // set bit for on leds
+		P1OUT &= (0xff ^ LEDS) | ledFlags;
+		P1OUT |= ledFlags;
 		ledChanged = 0;
 	}
 }

@@ -37,4 +37,4 @@ void buzzerInit();
 void buzzerAdvanceFrequency();
 void buzzerSetPeriod(short cycles);
 
-#endif // included
+#endif

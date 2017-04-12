@@ -109,9 +109,9 @@ void stateAdvance() {		 //alternate between toggling red & green
 #include "stateMachines.h"
 #include "led.h"
 
-char toggleRed() {
+static char state = 0;
 
-	static char state = 0;
+char toggleRed() {
 
 	switch (state) {
 		case 0:
@@ -127,9 +127,7 @@ char toggleRed() {
 	return 1;
 }
 
-char toggleGreen()	{ //only toggle green if red is on!
-
-	static char state = 0;
+char toggleGreen()	{
 
 	switch (state) {
 		case 0:
@@ -145,15 +143,20 @@ char toggleGreen()	{ //only toggle green if red is on!
 	return 1;
 }
 
-void stateAdvance() {		 //alternate between toggling red & green
+void stateAdvance() {
 
 	char changed = 0;
 
 	static enum {R=0, G=1} color = G;
 
 	switch (color) {
-	case R: changed = toggleRed(); color = G; break;
-	case G: changed = toggleGreen(); color = R; break;
+		case R: changed = toggleRed();
+		color = G;
+		break;
+
+		case G: changed = toggleGreen();
+		color = R;
+		break;
 	}
 
 	ledChanged = changed;
