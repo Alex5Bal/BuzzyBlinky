@@ -30,6 +30,8 @@ void stateAdvance();
 #ifndef stateMachine_included
 #define stateMachine_included
 
+static char state;
+
 void stateAdvance();
 
 #endif

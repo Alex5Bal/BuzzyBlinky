@@ -109,9 +109,9 @@ void stateAdvance() {		 //alternate between toggling red & green
 #include "stateMachines.h"
 #include "led.h"
 
-static char state = 0;
-
 char toggleRed() {
+
+	static char state = 0;
 
 	switch (state) {
 		case 0:
@@ -128,6 +128,8 @@ char toggleRed() {
 }
 
 char toggleGreen()	{
+
+	static char state = 0;
 
 	switch (state) {
 		case 0:
