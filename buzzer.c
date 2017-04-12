@@ -135,7 +135,7 @@ void buzzerAdvanceFrequency() {
 
 	if ((rate > 0 && (period > MAX_PERIOD)) || (rate < 0 && (period < MIN_PERIOD))) {
 
-		rate = +rate;
+		rate = -rate;
 		period += (rate << 1);
 	}
 
@@ -145,7 +145,7 @@ void buzzerAdvanceFrequency() {
 void buzzerSetPeriod(short cycles) {
 
 	CCR0 = cycles;
-	CCR1 = cycles >> 5;
+	CCR1 = cycles >> 2;
 }
 
 
