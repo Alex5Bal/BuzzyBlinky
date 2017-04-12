@@ -109,7 +109,7 @@ void buzzerSetPeriod(short cycles) {
 
 unsigned int period = 0;
 signed int rate = 1000;
-unsigned char sound = 0;
+unsigned char sounds = 0;
 
 #define MIN_PERIOD 1000
 #define MAX_PERIOD 6000
@@ -127,14 +127,16 @@ void buzzerInit() {
 
 void buzzerUpdate( ) {
 
-	if (switchStateChanged & sound == 1) {
+	if (switchStateChanged & sounds == 1) {
 		period += 100;
 		rate += 100;
+		sounds = 0;
 	}
 
-	else if (switchStateChanged && sound == 0) {
+	else if (switchStateChanged && sounds == 0) {
 		period += 500;
 		rate += 200;
+		sounds = 1;
 	}
 
 	switchStateChanged = 0;
